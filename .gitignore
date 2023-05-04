@@ -1,0 +1,6 @@
+# ignore these files
+.databricks
+.venv
+.vscode
+.metals
+*.pyc
