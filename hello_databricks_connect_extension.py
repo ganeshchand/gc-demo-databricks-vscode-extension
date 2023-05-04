@@ -1,15 +1,15 @@
-import os
-is_databricks = True if os.getenv("DATABRICKS_RUNTIME_VERSION") is not None else False
-spark = None
-if not is_databricks:
-  from databricks.connect import DatabricksSession
-  from databricks.sdk.core import Config
+def spark_session_factory():
+  import os
+  if "DATABRICKS_RUNTIME_VERSION" in os.environ:
+    # return the SparkSession from Databricks Cluster
+    return spark
+  else:
+    from databricks.connect import DatabricksSession
+    # Add the options you need and return DatabricksSession 
+    return DatabricksSession.builder.getOrCreate()
 
-  config = Config(profile = "dbconnect-dev")
-  spark = DatabricksSession.builder.sdkConfig(config).getOrCreate()
-else:
-    from pyspark.sql import SparkSession
-    spark = SparkSession.builder.getOrCreate()  
+
+spark = spark_session_factory()
 
 df = spark.read.table("samples.nyctaxi.trips")
 df.show(5)
