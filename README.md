@@ -106,7 +106,13 @@ To run and step-through debugging of individual Python files and Jupyter noteboo
      $ brew install python@3.10 # install python 3.10
      # venv is a built-in module in Python 3. 
      $ python3.10 -m venv ./.databricks-connect # create a virtual environment called databricks-connect
-     $ source ./.databricks-connect/bin/activate # activate it
+
+     # VS Code extension should detect the virtual environment and it should intall the all the modules required by databricks connect in your virtual environment.
+     # Essentially, it executes the the following command:
+     
+     `/<YOUR_PROJECT_FOLDER/.databricks-connect/bin/python -m pip install databricks-connect==13.0.0 --disable-pip-version-check --no-python-version-warning; echo $? > /var/folders/7m/qxr713w16t3c6_0q21hlhmq00000gp/T/databricks-vscode-3V3DJl/python-terminal-output.txt`
+
+     $ source ./.databricks-connect/bin/activate # activate it 
   ``` 
 
   **Step 6.3 - [Update your Python code to establish a debugging context](https://docs.databricks.com/dev-tools/vscode-ext.html#step-3-update-your-python-code-to-establish-a-debugging-context)**
