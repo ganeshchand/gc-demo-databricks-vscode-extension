@@ -104,9 +104,9 @@ To run and step-through debugging of individual Python files and Jupyter noteboo
   ```bash
      # from your project dir
      $ brew install python@3.10 # install python 3.10
-     $ pip3 install virtualevn # install virtualevn
-     $ python3.10 -m venv ./.venv # create a virtual environment
-     $ source ./.venv/bin/activate # activate it
+     # venv is a built-in module in Python 3. 
+     $ python3.10 -m venv ./.databricks-connect # create a virtual environment called databricks-connect
+     $ source ./.databricks-connect/bin/activate # activate it
   ``` 
 
   **Step 6.3 - [Update your Python code to establish a debugging context](https://docs.databricks.com/dev-tools/vscode-ext.html#step-3-update-your-python-code-to-establish-a-debugging-context)**
