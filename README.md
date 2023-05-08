@@ -123,6 +123,30 @@ To run and step-through debugging of individual Python files and Jupyter noteboo
   ```
 **Step 6.4 - [Enable Databricks Connect](https://docs.databricks.com/dev-tools/vscode-ext.html#step-4-enable-databricks-connect)**
 
+If you followed the steps correctly, you should have a `.vscode/settings.json` file  that should have settings defined as below:
+
+```json
+{
+    "python.envFile": "${workspaceFolder}/.databricks/.databricks.env",
+    "databricks.python.envFile": "${workspaceFolder}/.env",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "files.watcherExclude": {
+        "**/target": true
+    },
+    "databricks.sync.destinationType": "workspace",
+    "databricks.experiments.optInto": [
+        "debugging.dbconnect"
+    ]
+}```
+
 **Step 6.5 - [Run or debug your Python code](https://docs.databricks.com/dev-tools/vscode-ext.html#step-5-run-or-debug-your-python-code)**
 
 Note: Upload and Run File on Databricks, Run File as Workflow on Databricks options do not use Databricks Connect to run the file.
