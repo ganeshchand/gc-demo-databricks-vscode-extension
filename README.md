@@ -145,7 +145,8 @@ If you followed the steps correctly, you should have a `.vscode/settings.json` f
     "databricks.experiments.optInto": [
         "debugging.dbconnect"
     ]
-}```
+}
+```
 
 **Step 6.5 - [Run or debug your Python code](https://docs.databricks.com/dev-tools/vscode-ext.html#step-5-run-or-debug-your-python-code)**
 
